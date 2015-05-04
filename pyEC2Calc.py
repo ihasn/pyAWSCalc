@@ -8,13 +8,14 @@ import csv
 def osinput():
     # Takes input as either Linux or Windows
     os = raw_input("Linux/Windows OS: ")
+    return os
+
+def testosinput(os):
     if os != 'Linux' and os != 'Windows':
         # Exits if not
         print 'Exiting...'
         exit()
     print ""
-    return os
-
 
 def printinstances(os):
     # Sets osfile name for loading of prices
@@ -61,25 +62,28 @@ def calccost(os, osfile, instance):
 def test():
     print 'Testing Linux OS type'
     os = 'Linux'
+    testosinput(os)
     osfile = printinstances(os)
     print 'Testing m3.medium instance type'
     instance = 'm3.medium'
     calccost(os, osfile, instance)
     print 'Testing Windows OS type'
     os = 'Windows'
+    testosinput(os)
     osfile = printinstances(os)
     print 'Testing m2.xlarge instance type'
     instance = 'm2.xlarge'
     calccost(os, osfile, instance)
-    # TODO: Fix this faulty input
-    # print 'Testing faulty OS type'
-    # os = 'Test'
+    print 'Testing faulty OS type'
+    os = 'Test'
+    testosinput(os)
 
 
 # Main Function
 def main():
 
     os = osinput()
+    testosinput(os)
     osfile = printinstances(os)
 
     # Sets Instance type
